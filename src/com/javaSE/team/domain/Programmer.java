@@ -15,6 +15,12 @@ public class Programmer extends Employee implements Equipment{
     private Status status;
     private Equipment equipment;
 
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
     @Override
     public String getDescription() {
         return "Programmer{" +
@@ -32,8 +38,7 @@ public class Programmer extends Employee implements Equipment{
                 ", equipment=" + equipment +
                 '}';
     }
-
-    public Programmer(){};
+    public Programmer(int id, String name, int age, double salary, Equipment equipment){}
     public Programmer(int memberld, Status status, Equipment equipment) {
         this.memberld = memberld;
         this.status = status;
@@ -44,14 +49,6 @@ public class Programmer extends Employee implements Equipment{
         super(id, name, age, salary);
         this.memberld = memberld;
         this.status = status;
-        this.equipment = equipment;
-    }
-    public Programmer(int id, String name, int age, double salary) {
-        super(id, name, age, salary);
-    }
-
-    public Programmer(int id, String name, int age, double salary, Equipment equipment) {
-        super(id, name, age, salary);
         this.equipment = equipment;
     }
 
