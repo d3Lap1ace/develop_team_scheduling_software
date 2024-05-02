@@ -71,10 +71,12 @@ public class TeamView {
         Programmer[] team = teamSvc.getTeam();
         if(team.length == 0){
             System.out.println("开发团队目前没有成员!");
-            return;
         }else {
             System.out.println("TID/ID\\t姓名\\t年龄\\t工资\\t职位\\t奖金\\t股票\"");
             for (int i = 0; i < team.length; i++) {
+                if(team[i] == null){
+                    return;
+                }
                 System.out.println(team[i].getDetailsForTeam()+" ");
             }
         }

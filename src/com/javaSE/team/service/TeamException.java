@@ -9,8 +9,6 @@ package com.javaSE.team.service;
 *                        From the Laplace Demon 
 */
 public class TeamException extends Exception {
-
-
     public TeamException(){}
     public TeamException(String s) {
         super(s);
