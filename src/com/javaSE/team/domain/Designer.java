@@ -15,12 +15,17 @@ public class Designer extends Programmer{
 
 
 
+    public String getDetailsForTeam() {
+        return getMemberDetails() + "\t设计师\t" + getBonus();
+    }
+
     @Override
     public String toString() {
-        return "Designer{" +
-                "bonus=" + bonus +
-                '}';
+        return getDetails() + "\t设计师\t" + getStatus() + "\t" +
+                getBonus() +"\t\t" + getEquipment().getDescription();
     }
+
+    public Designer(){}
 
     public Designer(int id, String name, int age, double salary,  Equipment equipment, double bonus) {
         super(id, name, age, salary, equipment);

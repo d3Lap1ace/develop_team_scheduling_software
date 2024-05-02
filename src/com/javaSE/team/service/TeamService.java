@@ -40,15 +40,12 @@ public class TeamService {
 
         if(!(e instanceof Programmer)){
             throw new TeamException("该员工不是开发人员");
-        }else {
-            for (int i = 0; i < team.length; i++) {
-                if(e.getId() == team[i].getId()){
-                    throw new TeamException("该员工已在开发团队中");
-                }
-            }
         }
-
         Programmer p = (Programmer)e;
+
+
+        if (isExist(p))
+            throw new TeamException("该员工已在本团队中");
 
         if(p.getStatus().equals(BUSY)){
             throw new TeamException("该员工已是某团队成员");
@@ -75,7 +72,7 @@ public class TeamService {
         }
 
         p.setStatus(BUSY);
-        p.setMemberld(count++);
+        p.setMemberId(count++);
         team[total++] = p;
 
 
@@ -85,10 +82,18 @@ public class TeamService {
         参数：待删除成员的memberId
         异常：找不到指定memberId的员工，删除失败
     */
+
+    private boolean isExist(Programmer p) {
+        for (int i = 0; i < total; i++) {
+            if (team[i].getId() == p.getId()) return true;
+        }
+
+        return false;
+    }
     public void removeMember(int memberId) throws TeamException {
 
         for (int i = 0; i < total; i++) {
-            if (team[i].getMemberld() == memberId) {
+            if (team[i].getMemberId() == memberId) {
                 team[i].setStatus(Status.FREE);
                 break;
             }

@@ -10,54 +10,18 @@ import com.javaSE.team.service.Status;
 *    @Version 1.0
 *                        From the Laplace Demon 
 */
-public class Programmer extends Employee implements Equipment{
-    private int memberld;
-    private Status status;
+public class Programmer extends Employee {
+    private int memberId;
+    private Status status = Status.FREE;
     private Equipment equipment;
 
-
-    @Override
-    public int getId() {
-        return super.getId();
+    public Programmer() {
     }
 
-    @Override
-    public String getDescription() {
-        return "Programmer{" +
-                "memberld=" + memberld +
-                ", status=" + status +
-                ", equipment=" + equipment +
-                '}';
-    }
-
-    @Override
-    public String toString() {
-        return "Programmer{" +
-                "memberld=" + memberld +
-                ", status=" + status +
-                ", equipment=" + equipment +
-                '}';
-    }
-    public Programmer(int id, String name, int age, double salary, Equipment equipment){}
-    public Programmer(int memberld, Status status, Equipment equipment) {
-        this.memberld = memberld;
-        this.status = status;
-        this.equipment = equipment;
-    }
-
-    public Programmer(int id, String name, int age, double salary, int memberld, Status status, Equipment equipment) {
+    public Programmer(int id, String name, int age,
+                      double salary, Equipment equipment) {
         super(id, name, age, salary);
-        this.memberld = memberld;
-        this.status = status;
         this.equipment = equipment;
-    }
-
-    public int getMemberld() {
-        return memberld;
-    }
-
-    public void setMemberld(int memberld) {
-        this.memberld = memberld;
     }
 
     public Status getStatus() {
@@ -74,5 +38,26 @@ public class Programmer extends Employee implements Equipment{
 
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    protected String getMemberDetails() {
+        return getMemberId() + "/" + getDetails();
+    }
+
+    public String getDetailsForTeam() {
+        return getMemberDetails() + "\t程序员";
+    }
+
+    @Override
+    public String toString() {
+        return getDetails() + "\t程序员\t" + status + "\t\t\t" + equipment.getDescription() ;
     }
 }

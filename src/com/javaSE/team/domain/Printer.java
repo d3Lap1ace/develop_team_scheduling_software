@@ -12,25 +12,12 @@ public class Printer implements Equipment{
     private String name;
     private String type;
 
-    @Override
-    public String getDescription() {
-        return "Printer{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+    public Printer() {
+        super();
     }
-
-    @Override
-    public String toString() {
-        return "Printer{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
-    }
-
-    public Printer(){};
 
     public Printer(String name, String type) {
+        super();
         this.name = name;
         this.type = type;
     }
@@ -49,5 +36,10 @@ public class Printer implements Equipment{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String getDescription() {
+        return name + "(" + type + ")";
     }
 }

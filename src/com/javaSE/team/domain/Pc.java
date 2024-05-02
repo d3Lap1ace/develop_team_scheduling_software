@@ -12,9 +12,12 @@ public class Pc implements Equipment{
     private String model;
     private String display;
 
-    public Pc(){};
+    public Pc() {
+        super();
+    }
 
     public Pc(String model, String display) {
+        super();
         this.model = model;
         this.display = display;
     }
@@ -34,20 +37,8 @@ public class Pc implements Equipment{
     public void setDisplay(String display) {
         this.display = display;
     }
-
-    @Override
-    public String toString() {
-        return "pc{" +
-                "model='" + model + '\'' +
-                ", display='" + display + '\'' +
-                '}';
-    }
-
     @Override
     public String getDescription() {
-        return "pc{" +
-                "model='" + model + '\'' +
-                ", display='" + display + '\'' +
-                '}';
+        return model + "(" + display + ")";
     }
 }

@@ -69,16 +69,15 @@ public class TeamView {
     private void getTeam(){
         System.out.println("\n--------------团队成员列表---------------");
         Programmer[] team = teamSvc.getTeam();
-        if(team.length == 0||team != null){
+        if(team.length == 0){
             System.out.println("开发团队目前没有成员!");
             return;
         }else {
-            System.out.println("\"TID/ID\\t姓名\\t年龄\\t工资\\t职位\\t奖金\\t股票\"");
-            for (Programmer p : team) {
-                System.out.println(" "+p.getDescription());
+            System.out.println("TID/ID\\t姓名\\t年龄\\t工资\\t职位\\t奖金\\t股票\"");
+            for (int i = 0; i < team.length; i++) {
+                System.out.println(team[i].getDetailsForTeam()+" ");
             }
         }
-
         System.out.println("--------------------------------------------------------");
     }
 

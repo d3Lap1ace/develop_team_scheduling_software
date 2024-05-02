@@ -15,38 +15,35 @@ public class Notebook implements Equipment{
 
     @Override
     public String getDescription() {
-        return "Notebook{" +
-                "model='" + model + '\'' +
-                ", price=" + price +
-                '}';
+        return model + "(" + price + ")";
     }
 
-    @Override
-    public String toString() {
-        return "Notebook{" +
-                "model='" + model + '\'' +
-                ", price=" + price +
-                '}';
+    public Notebook() {
+        super();
     }
 
-    public Notebook(){}
 
     public Notebook(String model, double price) {
+        super();
         this.model = model;
         this.price = price;
     }
+
 
     public String getModel() {
         return model;
     }
 
+
     public void setModel(String model) {
         this.model = model;
     }
 
+
     public double getPrice() {
         return price;
     }
+
 
     public void setPrice(double price) {
         this.price = price;
